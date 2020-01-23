@@ -18,21 +18,40 @@ function remSpinner(spinner) {
   spinner.parentNode.removeChild(spinner);
 }
 
+function fazLista(result) {
+  const selectList = document.createElement('select');
+  selectList.className = 'myselect';
+  document.querySelector('body').appendChild(selectList);
+  result.forEach(value => {
+    const option = document.createElement('option');
+    option.value = value.nome;
+    option.text = value.nome;
+    selectList.appendChild(option);
+  });
+}
+
 setTimeout(requestData, 1000);
 
 function requestData() {
-  fetch(
-    'https://servicodados.ibge.gov.br/api/v1/localidades/municipios/3550304/distritos/',
-    {
-      method: 'GET'
-    }
-  )
+  // criaLista();
+
+  fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados', {
+    method: 'GET'
+  })
     .then(resp => {
-      // fazSpinner();
       return resp.json();
     })
     .then(result => {
       remSpinner(spinner);
-      // alert('Fetched');
+      fazLista(result);
+      // const selectList = document.createElement('select');
+      // selectList.className = 'myselect';
+      // document.querySelector('body').appendChild(selectList);
+      // result.forEach(value => {
+      //   const option = document.createElement('option');
+      //   option.value = value.nome;
+      //   option.text = value.nome;
+      //   selectList.appendChild(option);
+      // });
     });
 }

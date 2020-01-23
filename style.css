@@ -1,0 +1,14 @@
+.title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.menu {
+  text-align: center;
+}
+
+.spinner {
+  width: 40%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

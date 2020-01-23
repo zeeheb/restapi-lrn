@@ -38,18 +38,19 @@ function fazInput() {
   // btn.onClick = location.href = 'after.html';
   // btn.addEventListener('', changeScreen(btn));
   document.querySelector('form').appendChild(btn);
+
   changeScreen();
 }
 
 function changeScreen() {
   const form = document.querySelector('.form');
   form.addEventListener('submit', e => {
-    // querySe...
-    e.preventDefault();
+    const option = document.querySelector('.myselect');
     // const params = new URLSearchParams(location.search);
-
+    const valueId = option.value;
     // console.log(new URLSearchParams(location.search));
-    location.replace('/2/after.html');
+    e.preventDefault();
+    location.replace(`/2/after.html?id=${valueId}`);
   });
 }
 

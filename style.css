@@ -4,7 +4,6 @@
 
 .title {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  border: 2px solid black;
   width: 100%;
 }
 
@@ -26,4 +25,21 @@
   display: block;
   margin: 0 auto;
   margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form {
+  border: 1px solid black;
+}
+
+.btn {
+  display: block;
+  margin: 20px auto;
+  width: 50%;
+  background-color: #5dbcd2;
+  border-radius: 3px;
+  border: 1px solid;
+  height: 45px;
+  margin-bottom: 2px;
+  font-size: 20px;
 }

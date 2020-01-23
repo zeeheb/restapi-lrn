@@ -11,7 +11,7 @@ function fazSpinner(spinner) {
   spinner.classList.add('spinner');
   spinner.src =
     'https://mir-s3-cdn-cf.behance.net/project_modules/disp/3c215736197347.57135ca123427.gif';
-  document.querySelector('body').appendChild(spinner);
+  document.querySelector('form').appendChild(spinner);
 }
 
 function remSpinner(spinner) {
@@ -21,12 +21,35 @@ function remSpinner(spinner) {
 function fazLista(result) {
   const selectList = document.createElement('select');
   selectList.className = 'myselect';
-  document.querySelector('body').appendChild(selectList);
+  document.querySelector('.form').appendChild(selectList);
   result.forEach(value => {
     const option = document.createElement('option');
     option.value = value.nome;
     option.text = value.nome;
     selectList.appendChild(option);
+  });
+}
+
+function fazInput() {
+  const btn = document.createElement('input');
+  btn.className = 'btn';
+  btn.type = 'submit';
+  btn.value = 'List cities';
+  // btn.onClick = location.href = 'after.html';
+  // btn.addEventListener('', changeScreen(btn));
+  document.querySelector('form').appendChild(btn);
+  changeScreen();
+}
+
+function changeScreen() {
+  const form = document.querySelector('.form');
+  form.addEventListener('submit', e => {
+    // querySe...
+    e.preventDefault();
+    // const params = new URLSearchParams(location.search);
+
+    // console.log(new URLSearchParams(location.search));
+    location.replace('/2/after.html');
   });
 }
 
@@ -44,14 +67,6 @@ function requestData() {
     .then(result => {
       remSpinner(spinner);
       fazLista(result);
-      // const selectList = document.createElement('select');
-      // selectList.className = 'myselect';
-      // document.querySelector('body').appendChild(selectList);
-      // result.forEach(value => {
-      //   const option = document.createElement('option');
-      //   option.value = value.nome;
-      //   option.text = value.nome;
-      //   selectList.appendChild(option);
-      // });
+      fazInput();
     });
 }

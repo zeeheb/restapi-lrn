@@ -24,7 +24,7 @@ function fazLista(result) {
   document.querySelector('.form').appendChild(selectList);
   result.forEach(value => {
     const option = document.createElement('option');
-    option.value = value.nome;
+    option.value = value.id;
     option.text = value.nome;
     selectList.appendChild(option);
   });
@@ -54,6 +54,18 @@ function changeScreen() {
   });
 }
 
+function fazDiv() {
+  const div = document.createElement('div');
+  div.className = 'div-title';
+
+  const paragraph = document.createElement('p');
+  paragraph.className = 'paragraph';
+  paragraph.textContent = 'Select a state';
+
+  div.appendChild(paragraph);
+  document.querySelector('.form').appendChild(div);
+}
+
 setTimeout(requestData, 1000);
 
 function requestData() {
@@ -67,6 +79,7 @@ function requestData() {
     })
     .then(result => {
       remSpinner(spinner);
+      fazDiv();
       fazLista(result);
       fazInput();
     });

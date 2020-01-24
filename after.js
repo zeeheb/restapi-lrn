@@ -1,38 +1,39 @@
 const params = new URLSearchParams(location.search);
+const spinner = document.createElement('img');
+const cityId = params.get('id');
 
-// console.log(params.get('id'));
-const city = params.get('id');
+loadEventListener();
 
-requestData();
+function loadEventListener() {
+  document.addEventListener('DOMContentLoaded', fazSpinner);
+}
 
-function getId(result) {
+function fazSpinner() {
+  // const spinner = document.createElement('img');
+  spinner.classList.add('spinner');
+  spinner.src =
+    'https://mir-s3-cdn-cf.behance.net/project_modules/disp/3c215736197347.57135ca123427.gif';
+  document.querySelector('body').appendChild(spinner);
+}
+
+function remSpinner() {
+  spinner.parentNode.removeChild(spinner);
+}
+
+function listCities(result) {
   result.forEach(value => {
-    if (value.nome === city) {
-      let cityId = value.id;
-      //   alert(`Fetched: id: ${cityId}`);
-
-      requestCities(cityId);
-
-      //   return cityId;
-    }
+    let nome = value.nome;
+    // let id = value.id;
+    const ul = document.createElement('ul');
+    ul.className = 'li-value';
+    ul.textContent = nome;
+    document.querySelector('.menu').appendChild(ul);
   });
 }
 
-function requestData() {
-  fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados', {
-    method: 'GET'
-  })
-    .then(resp => {
-      return resp.json();
-    })
-    .then(result => {
-      const cityID = getId(result);
+setTimeout(requestCities, 1000);
 
-      //   alert(`Fetched: id: ${cityID}`);
-    });
-}
-
-function requestCities(cityId) {
+function requestCities() {
   const temp = cityId;
 
   fetch(
@@ -47,5 +48,8 @@ function requestCities(cityId) {
     .then(result => {
       console.log(result);
       // alert('Fetched');
+      remSpinner();
+
+      listCities(result);
     });
 }

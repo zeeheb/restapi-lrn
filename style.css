@@ -3,6 +3,7 @@
 }
 
 .title {
+  border: 1px solid black;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: 100%;
 }
@@ -22,6 +23,7 @@
 }
 
 .myselect {
+  /* padding-right: 0px; */
   display: block;
   margin: 0 auto;
   margin-top: 20px;
@@ -29,17 +31,40 @@
 }
 
 .form {
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .btn {
   display: block;
   margin: 20px auto;
-  width: 50%;
+  width: 30%;
   background-color: #5dbcd2;
   border-radius: 3px;
   border: 1px solid;
   height: 45px;
   margin-bottom: 2px;
   font-size: 20px;
+}
+
+.btn-header {
+  display: block;
+  margin: 20px auto;
+  width: 20%;
+  background-color: lightcoral;
+  border-radius: 3px;
+  border: 1px solid;
+  height: 45px;
+  margin-bottom: 2px;
+  font-size: 20px;
+}
+
+.paragraph {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.li-value {
+  padding-left: 0px;
+  margin: 0;
+  margin-bottom: 2px;
 }

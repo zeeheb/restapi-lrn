@@ -50,7 +50,7 @@ function changeScreen() {
     const valueId = option.value;
     // console.log(new URLSearchParams(location.search));
     e.preventDefault();
-    location.replace(`after.html?id=${valueId}`);
+    location.replace(`/restapi-lrn/after.html?id=${valueId}`);
   });
 }
 

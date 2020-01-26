@@ -49,8 +49,9 @@ function changeScreen() {
     // const params = new URLSearchParams(location.search);
     const valueId = option.value;
     // console.log(new URLSearchParams(location.search));
-    e.preventDefault();
+    
     location.replace(`after.html?id=${valueId}`);
+    e.preventDefault();
   });
 }
 
